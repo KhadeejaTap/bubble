@@ -1,28 +1,51 @@
-// todo.js - Handles dynamic to-do list logic
-// Color scheme: soft off-white background, deep blue for text/icons, light lavender for tasks
 
-// DOM elements
+// todo.js - Handles dynamic to-do list logic with PHP backend
+// Uses AJAX to communicate with tasks.php
+
 const plusBtn = document.getElementById('plus-btn');
 const tasksContainer = document.getElementById('tasks-container');
-
 let tasks = [];
+
+function ajax(action, data, cb) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'tasks.php');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+        try {
+            cb(JSON.parse(xhr.responseText));
+        } catch {
+            cb([]);
+        }
+    };
+    let params = 'action=' + encodeURIComponent(action);
+    if (data) {
+        for (const k in data) {
+            params += '&' + encodeURIComponent(k) + '=' + encodeURIComponent(data[k]);
+        }
+    }
+    xhr.send(params);
+}
+
+function loadTasks() {
+    ajax('list', null, function(res) {
+        if (Array.isArray(res)) {
+            tasks = res;
+            renderTasks();
+        }
+    });
+}
 
 function promptTask() {
     if (tasks.length >= 3) return;
     const name = prompt('Enter your task:');
     if (name && name.trim()) {
-        addTask(name.trim());
+        ajax('add', {name: name.trim()}, function(res) {
+            if (Array.isArray(res)) {
+                tasks = res;
+                renderTasks();
+            }
+        });
     }
-}
-
-function addTask(name) {
-    if (tasks.length >= 3) return;
-    const task = {
-        name,
-        done: false
-    };
-    tasks.push(task);
-    renderTasks();
 }
 
 function renderTasks() {
@@ -36,13 +59,21 @@ function renderTasks() {
         `;
         // Mark as done
         div.querySelector('.task-text').onclick = () => {
-            task.done = !task.done;
-            renderTasks();
+            ajax('toggle', {idx}, function(res) {
+                if (Array.isArray(res)) {
+                    tasks = res;
+                    renderTasks();
+                }
+            });
         };
         // Delete
         div.querySelector('.delete-btn').onclick = () => {
-            tasks.splice(idx, 1);
-            renderTasks();
+            ajax('delete', {idx}, function(res) {
+                if (Array.isArray(res)) {
+                    tasks = res;
+                    renderTasks();
+                }
+            });
         };
         // Drag and drop
         div.draggable = true;
@@ -56,9 +87,12 @@ function renderTasks() {
             e.preventDefault();
             const from = Number(e.dataTransfer.getData('text/plain'));
             if (from !== idx) {
-                const moved = tasks.splice(from, 1)[0];
-                tasks.splice(idx, 0, moved);
-                renderTasks();
+                ajax('reorder', {from, to: idx}, function(res) {
+                    if (Array.isArray(res)) {
+                        tasks = res;
+                        renderTasks();
+                    }
+                });
             }
         };
         tasksContainer.appendChild(div);
@@ -67,5 +101,5 @@ function renderTasks() {
 
 plusBtn.onclick = promptTask;
 
-// Initial render
-renderTasks();
+// Initial render from PHP
+loadTasks();
