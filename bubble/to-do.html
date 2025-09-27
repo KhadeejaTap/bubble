@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>To-do | Bubble</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/todo.css">
+</head>
+<body>
+	<div class="container">
+		<!-- Page Title -->
+		<div class="main-title">To-do</div>
+		<!-- Plus sign for adding tasks -->
+		<button id="plus-btn" class="plus-btn" title="Add task">
+			<!-- Centered plus sign in circle -->
+			<svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+				<circle cx="40" cy="40" r="40" fill="#e6e1ed"/>
+				<path d="M40 28v24M28 40h24" stroke="#505676" stroke-width="5" stroke-linecap="round"/>
+			</svg>
+		</button>
+		<!-- Container for tasks -->
+		<div id="tasks-container" class="tasks-container"></div>
+	</div>
+	<script src="js/todo.js"></script>
+</body>
+</html>

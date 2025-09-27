@@ -1,0 +1,99 @@
+/* todo.css - Styles for the To-do page */
+
+body {
+    background: #fdfcf6;
+}
+
+/* Center content vertically and horizontally */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding-top: 6vh;
+}
+
+/* Large To-do title */
+.main-title {
+    font-size: 8vw;
+    color: #505676;
+    font-weight: 600;
+    margin-bottom: 3vw;
+    letter-spacing: 0.05em;
+}
+
+/* Plus button styling */
+.plus-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 4vw;
+    outline: none;
+    transition: transform 0.15s;
+    padding: 0;
+}
+.plus-btn:hover {
+    transform: scale(1.12);
+}
+
+/* Tasks container */
+.tasks-container {
+    width: 80vw;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    align-items: center;
+}
+
+/* Individual task styling */
+.todo-task {
+    background: #e6e1ed;
+    color: #505676;
+    font-size: 2vw;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    border-radius: 18px;
+    padding: 2vw 0;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(80,86,118,0.10);
+    position: relative;
+    user-select: none;
+    transition: box-shadow 0.15s, transform 0.15s;
+}
+.todo-task:active {
+    box-shadow: 0 6px 24px rgba(80,86,118,0.18);
+    transform: scale(1.03);
+}
+.todo-task.done {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+.task-text {
+    cursor: pointer;
+}
+.delete-btn {
+    position: absolute;
+    right: 2vw;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #505676;
+    font-size: 2vw;
+    cursor: pointer;
+    padding: 0 0.5vw;
+    opacity: 0.7;
+    transition: opacity 0.15s;
+}
+.delete-btn:hover {
+    opacity: 1;
+}
+
+@media (max-width: 700px) {
+    .main-title { font-size: 14vw; }
+    .tasks-container { width: 98vw; }
+    .todo-task { font-size: 5vw; }
+    .delete-btn { font-size: 5vw; right: 4vw; }
+}

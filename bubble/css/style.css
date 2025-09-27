@@ -1,0 +1,87 @@
+
+/* Main page background and font */
+body {
+	background: #fdfcf6;
+	font-family: 'Fira Mono', 'Consolas', monospace;
+	margin: 0;
+	min-height: 100vh;
+}
+
+/* Center everything vertically and horizontally */
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+/* Large main header */
+.main-title {
+	font-size: 10vw; /* Bigger for more attention */
+	color: #505676;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	margin-bottom: 2vw;
+}
+
+/* Subtitle under main header */
+.subtitle {
+	font-size: 3vw; /* Bigger subtitle */
+	color: #505676;
+	margin-bottom: 5vw;
+	letter-spacing: 0.08em;
+}
+
+/* Row of buttons */
+.button-row {
+	display: flex;
+	gap: 3vw;
+}
+
+/* Bubble button styles */
+.bubble-btn {
+	background: #fff;
+	border: none;
+	border-radius: 24px;
+	box-shadow: 0 6px 32px rgba(80,86,118,0.13);
+	width: 24vw;
+	min-width: 260px;
+	height: 24vw;
+	min-height: 260px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transition: transform 0.18s, box-shadow 0.18s;
+	cursor: pointer;
+	text-decoration: none;
+}
+.bubble-btn:hover {
+	transform: scale(1.12);
+	box-shadow: 0 12px 40px rgba(80,86,118,0.22);
+}
+
+/* Icon container for SVGs */
+.bubble-icon {
+	margin-bottom: 22px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Button label */
+.bubble-label {
+	font-size: 2em;
+	color: #505676;
+	letter-spacing: 0.04em;
+}
+
+/* Responsive for mobile */
+@media (max-width: 700px) {
+	.main-title { font-size: 14vw; }
+	.subtitle { font-size: 6vw; }
+	.button-row { flex-direction: column; gap: 6vw; }
+	.bubble-btn { width: 90vw; height: 40vw; min-width: 0; min-height: 140px; }
+	.bubble-label { font-size: 1.3em; }
+}
