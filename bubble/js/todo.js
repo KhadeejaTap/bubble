@@ -8,7 +8,7 @@ let tasks = [];
 
 function ajax(action, data, cb) {
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'tasks.php');
+    xhr.open('POST', '../php/tasks.php');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onload = function() {
         try {

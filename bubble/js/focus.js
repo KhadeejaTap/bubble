@@ -31,12 +31,19 @@ function tick() {
   }
 }
 
-function saveSession(goal, seconds) {
-  fetch('save_session.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `goal=${encodeURIComponent(goal)}&seconds=${seconds}`
-  });
+function saveSession(secondsWorked) {
+    const today = new Date().toISOString().split('T')[0]; // current date
+    fetch('../php/focus.php', {      // adjust path if needed
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            date: today,
+            seconds: secondsWorked    // use the argument!
+        })
+    })
+    .then(res => res.json())          // if you also change focus.php to return JSON
+    .then(data => console.log('Saved:', data))
+    .catch(err => console.error('Save error:', err));
 }
 
 // Call this when timer ends
@@ -44,7 +51,7 @@ function notifyEnd() {
   alert("Time's up! Take a break.");
   // Example: send completed session to PHP
   let goalName = "Default Goal"; // Replace with selected goal if implemented
-  saveSession(goalName, totalSeconds);
+  saveSession(totalSeconds);
 }
 
 startBtn.addEventListener('click', () => {

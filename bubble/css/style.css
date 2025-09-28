@@ -16,6 +16,35 @@ body {
 	min-height: 100vh;
 }
 
+/* Home button styling */
+.home-btn {
+    position: absolute;  /* top-left corner */
+    top: 2vw;     
+    left: 2vw;         
+    padding: 0.5em 1em;
+    background-color: #505676; /* matches the dash-title color */
+    color: #FFFDF6;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+	transition: transform 0.18s, box-shadow 0.18s;
+	box-shadow: 0 6px 32px rgba(80,86,118,0.13);
+}
+
+.home-btn:hover {
+    transform: scale(1.12);
+	box-shadow: 0 12px 40px rgba(80,86,118,0.22);
+}
+
+.header {
+    display: flex;
+    gap: 1vw;
+    padding: 1vw;
+    align-items: center;
+}
+
+
 /* Large main header */
 .main-title {
 	font-size: 10vw; /* Bigger for more attention */

@@ -2,11 +2,9 @@
 // tasks.php - PHP backend for to-do list
 
 // 1. Set response type to JSON
-// header('Content-Type: application/json');
 header('Content-Type: application/json');
 // 2. Load or create the tasks.json file
 $filename = 'tasks.json';
-// $filename = 'tasks.json';
 // If file doesn't exist, create it as an empty array
 if(!file_exists($filename)) {
     file_put_contents($filename, json_encode([]));
@@ -41,12 +39,14 @@ if ($action === 'add') {
     }
 }
 
-// 'delete': Remove a task by index, save, return updated tasks
 if ($action === 'delete') {
     $idx = intval($_POST['idx'] ?? -1);
     if (isset($tasks[$idx])) {
+        // Remove the task from the array
         array_splice($tasks, $idx, 1);
+        // Save the updated array to the file
         saveTasks($tasks, $filename);
+        // Return the updated tasks
         echo json_encode($tasks);
         exit;
     }
