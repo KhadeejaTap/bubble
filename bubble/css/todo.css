@@ -11,7 +11,8 @@ body {
     align-items: center;
     justify-content: flex-start;
     min-height: 100vh;
-    padding-top: 6vh;
+    padding-top: 1vh;
+
 }
 
 /* Large To-do title */
@@ -19,16 +20,22 @@ body {
     font-size: 8vw;
     color: #505676;
     font-weight: 600;
-    margin-bottom: 3vw;
+    margin-bottom: 2vw;
     letter-spacing: 0.05em;
 }
 
+.subtitle{
+    font-size: 3vw;
+    color: #505676;
+    margin-bottom: 3vw;
+    letter-spacing: 0.08em;
+}
 /* Plus button styling */
 .plus-btn {
     background: none;
     border: none;
     cursor: pointer;
-    margin-bottom: 4vw;
+    margin-bottom: 2vw;
     outline: none;
     transition: transform 0.15s;
     padding: 0;
@@ -43,7 +50,7 @@ body {
     max-width: 900px;
     display: flex;
     flex-direction: column;
-    gap: 2vw;
+    gap: 1vw;
     align-items: center;
 }
 
