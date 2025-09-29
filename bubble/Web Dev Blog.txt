@@ -1,0 +1,51 @@
+Web Dev Blog
+
+Web development is a process consisting of the following steps: gathering information, planning, design and layout, content creation, development, testing/rev/launch, maintenance; my process has been documented.
+
+Gathering Relevant Information
+
+Objectives – learn PHP and become comfortable with JS and HTML/CSS.
+
+Target audience – friends and hiring companies
+
+Requirements – Figma and a basic IDE
+
+Planning – Wireframe
+
+A sitemap is unnecessary since this project is simple
+
+Wireframe – made in Figma
+
+Tech stack – PHP, JS & JS libraries, HTML/CSS
+
+Roadmap –
+
+Day 1) Planning, Wireframe – 3hr
+
+Day 2) Start frontend with HTML/CSS – 2hr
+
+Interactivity with JS & PHP – 4hr
+
+Day 3) Finish & deploy 4hr
+
+Design & Layout
+
+Focus on functionality & keep it simple
+
+Content Creation
+
+Chose a name & title
+
+Chose a call to action (CTA)
+
+Development
+
+Testing and Quality Assurance
+
+I did a bit of testing and ran into bugs which I fixed. 
+
+Deployment
+
+I made a readme with instructions and added files to GitHub
+
+(a more detailed plan would be needed if working in a team)
