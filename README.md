@@ -1,8 +1,7 @@
 
 # Bubble
 
-**Bubble** is a simple web-based productivity app that helps you manage focus sessions and track tasks. This project was created to gain experience with PHP.
-
+**Bubble** is a simple web-based productivity app that helps you manage focus sessions and track tasks. This project was created to gain experience with PHP and other technologies.
 ## Features
 
 * **Focus Timer**
@@ -34,3 +33,4 @@ Open the local host link
 
 * Focus sessions and tasks are stored locally in `php/session_log.json` and `tasks.json`.
 * Maximum of 3 tasks allowed in the To-Do list at a time.
+* Check out the text file to see what I learned about the web dev process
