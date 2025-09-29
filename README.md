@@ -34,7 +34,3 @@ Open the local host link
 
 * Focus sessions and tasks are stored locally in `php/session_log.json` and `tasks.json`.
 * Maximum of 3 tasks allowed in the To-Do list at a time.
-
----
-
-If you want, I can **also make it even more concise in one page**, perfect for GitHub readme display. Do you want me to do that?
